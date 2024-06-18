@@ -28,6 +28,7 @@ export default function App() {
         const response = await fetch(apiUrl);
         if (response.status === 404) {
           alert("404 not found. Check city name");
+          setCityName('')
         }
         if (!response.ok) {
           throw new Error("Network response was not ok");
