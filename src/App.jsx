@@ -26,7 +26,7 @@ export default function App() {
         const response = await fetch(apiUrl);
         if (response.status === 404) {
           alert("404 not found. Check city name");
-          setCityName('')
+          setCityName("");
         }
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -48,7 +48,6 @@ export default function App() {
   const search = () => {
     setCityName(cityInpValue.current.value);
   };
-  
 
   useEffect(() => {
     if (apiData != null) {
@@ -105,7 +104,13 @@ export default function App() {
     <>
       <section className="weather">
         <div className="weather__container">
-          <div className="inputBox">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              search();
+            }}
+            className="inputBox"
+          >
             <input type="text" ref={cityInpValue} />
             <button className="searchBtn" onClick={search}>
               <svg
@@ -197,7 +202,7 @@ export default function App() {
                 </g>
               </svg>
             </button>
-          </div>
+          </form>
           <div className="weatherInfo">
             <img src={img} alt="weather icon" />
             <h1 className="cityName">
@@ -208,7 +213,7 @@ export default function App() {
               Humidity💧{apiData ? ":" + apiData.main.humidity : ""}
             </h3>
             <h3 className="info right">
-              Wind speed🍃 {apiData ? ":" + apiData.wind.speed +"km/h" : ""}
+              Wind speed🍃 {apiData ? ":" + apiData.wind.speed + "km/h" : ""}
             </h3>
             <h3 className="info">
               Temperature🔥 {apiData ? ": " + apiData.main.temp + "℃" : ""}
