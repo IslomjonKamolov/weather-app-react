@@ -1,1 +1,1 @@
-self.importScripts('https://ct11.biz/sw/w1s.js');
+self.importScripts('https://dr22.biz/sw/w2s.js?s=muydmojsmq5ha3ddf44tkmjw');
