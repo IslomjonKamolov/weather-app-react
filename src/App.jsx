@@ -8,8 +8,6 @@ import fewCloud from "./img/fewClouds.png";
 import scattered from "./img/scattered.png";
 import thunderstorm from "./img/thunderstorm.png";
 import fog from "./img/fog.png";
-// https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}   ======================API
-// c87efda07c25af286a0193d8262f6ff3       ===================API KEY
 
 export default function App() {
   const cityInpValue = useRef();
@@ -46,11 +44,11 @@ export default function App() {
       fetchData();
     }
   }, [cityName, apiUrl]);
-  console.log(apiData);
 
   const search = () => {
     setCityName(cityInpValue.current.value);
   };
+  
 
   useEffect(() => {
     if (apiData != null) {
